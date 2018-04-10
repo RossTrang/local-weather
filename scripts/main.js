@@ -11,9 +11,11 @@ let longitude = 2;
 let latitude = 2;
 
 // Get location
-function locInfo() {navigator.geolocation.getCurrentPosition(function(position) {
+function getLoc() {
+  navigator.geolocation.getCurrentPosition(function(position) {
   latitude = position.coords.latitude;
   longitude = position.coords.longitude;
+  getWeather();
 });
 }
 
@@ -63,4 +65,4 @@ function getWeather() {
   xhr.send();
 }
 
-document.addEventListener('DOMContentLoaded', getWeather());
+document.addEventListener('DOMContentLoaded', getLoc());
