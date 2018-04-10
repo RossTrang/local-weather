@@ -1,17 +1,25 @@
 // Selectors
-let bckgrndImg = document.querySelector('body')
-let currLoc = document.querySelector('#location')
-let pictogram = document.querySelector('#picto')
-let adj = document.querySelector('#adjective')
-let temperature = document.querySelector('#temperature')
-let forecast = document.querySelector('#description')
+let bckgrndImg = document.querySelector('body');
+let currLoc = document.querySelector('#location');
+let pictogram = document.querySelector('#picto');
+let adj = document.querySelector('#adjective');
+let temperature = document.querySelector('#temperature');
+let forecast = document.querySelector('#description');
+//V Variables
+let weather = '';
+let longitude = 2;
+let latitude = 2;
 
-let weather = ''
-let longitude = -4.7, latitude = 55.9
+// Get location
+function locInfo() {navigator.geolocation.getCurrentPosition(function(position) {
+  latitude = position.coords.latitude;
+  longitude = position.coords.longitude;
+});
+}
 
-//Get request
+// Get request
 function getWeather() {
-  let url = 'https://fcc-weather-api.glitch.me/api/current?lat=35&lon=139'
+  let url = 'https://fcc-weather-api.glitch.me/api/current?lat='+latitude+'&lon='+longitude;
   const xhr = new XMLHttpRequest();
   xhr.open('GET', url);
   xhr.onload = function() {
@@ -22,7 +30,7 @@ function getWeather() {
     }
     // Make DOM changes
     currLoc.textContent = weather.name;
-    temperature.textContent = Math.round(weather.main.temp);
+    pictogram.src = weather.weather[0].icon;
     switch (true) {
     case (weather.main.temp <= 0):
       adj.textContent = 'FREEZING'
@@ -49,8 +57,8 @@ function getWeather() {
       adj.textContent = 'SIZZLING'
       break;
     }
+    temperature.textContent = Math.round(weather.main.temp);
     forecast.textContent = weather.weather[0].description;
-    pictogram.src = weather.weather[0].icon;
   };
   xhr.send();
 }
