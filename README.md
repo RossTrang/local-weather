@@ -10,3 +10,8 @@ Use HTML geo-location to pull weather info via [API](https://fcc-weather-api.gli
 ### House rules
   - no jQuery
   - no Bootstrap
+
+#### Still to do...
+  - Styling
+  - Temp conversion
+  - Background selection
