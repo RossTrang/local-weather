@@ -1,6 +1,5 @@
 body {
   height: 96vh;
-  background-color: mistyrose;
 }
 
 main {
@@ -9,6 +8,8 @@ main {
   width: 100%;
   margin: auto;
   text-align: center;
+  background-size: contain;
+  background: url('../imgs/hot.jpg');
 }
 
 .content {
