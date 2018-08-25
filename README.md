@@ -1,5 +1,7 @@
 # [Show the Local Weather](https://www.freecodecamp.org/challenges/show-the-local-weather)
 
+[Live demo](https://rawgit.com/RossTrang/local-weather/master/index.html)
+
 Use HTML geo-location to pull weather info via [API](https://fcc-weather-api.glitch.me/)
 
 ### User Stories
